@@ -223,6 +223,8 @@ private:
 
 	} data;
 
+	static String properties_managed_by_container[];
+
 	// used internally
 	Control *_find_control_at_pos(CanvasItem *p_node, const Point2 &p_pos, const Transform2D &p_xform, Transform2D &r_inv_xform);
 
@@ -274,6 +276,7 @@ protected:
 
 	bool _set(const StringName &p_name, const Variant &p_value);
 	bool _get(const StringName &p_name, Variant &r_ret) const;
+	virtual void _validate_property(PropertyInfo &property) const override;
 	void _get_property_list(List<PropertyInfo> *p_list) const;
 
 	void _notification(int p_notification);
